@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { navigation } from './shared/navigation.enum';
 
 @Component({
   selector: 'app-root',
@@ -7,25 +8,13 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  private _currentNavigationSelected = navigation.recipes;
 
-  private _isRecipesSelected = true;
-  private _isShoppingListSelected = false;
-
-  public get isRecipesSelected(): boolean {
-    return this._isRecipesSelected;
+  public get currentNavigationSelected(): navigation {
+    return this._currentNavigationSelected;
   }
 
-  public get isShoppingListSelected(): boolean {
-    return this._isShoppingListSelected;
-  }
-
-  public selectRecipes(): void {
-    this._isRecipesSelected = true;
-    this._isShoppingListSelected = false;
-  }
-
-  public selectShoppingList(): void {
-    this._isShoppingListSelected = true;
-    this._isRecipesSelected = false;
+  public navigationSelected(value: navigation): void {
+    this._currentNavigationSelected = value;
   }
 }

@@ -1,10 +1,9 @@
-<app-header (recipesSelected)="selectRecipes()"
-            (shoppingListSelected)="selectShoppingList()"></app-header>
+<app-header (navigationSelectedEvent)="navigationSelected($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes *ngIf="isRecipesSelected"></app-recipes>
-      <app-shopping-list *ngIf="isShoppingListSelected"></app-shopping-list>
+      <app-recipes *ngIf="currentNavigationSelected === 'recipes'"></app-recipes>
+      <app-shopping-list *ngIf="currentNavigationSelected === 'shoppingList'"></app-shopping-list>
     </div>
   </div>
 </div>
