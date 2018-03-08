@@ -1,11 +1,11 @@
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start start">
+  <a (click)=clicked() href="#" class="list-group-item list-group-item-action flex-column align-items-start start">
     <div class="float-left">
-      <h4 class="mb-1">{{ name }}</h4>
-      <p class="mb-1">{{ description }}</p>
+      <h4 class="mb-1">{{ recipe.name }}</h4>
+      <p class="mb-1">{{ recipe.description }}</p>
     </div>
     <span class="float-right mb-1">
-      <img class="img-responsive" src="{{ imageUrl }}" alt="{{name}}" style="max-height: 50px;">
+      <img class="img-responsive" src="{{ recipe.imageUrl }}" alt="{{recipe.name}}" style="max-height: 50px;">
     </span>
   </a>
 </div>

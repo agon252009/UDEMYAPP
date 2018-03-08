@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Recipe } from '../../recipe.model';
 
 @Component({
   selector: 'app-recipe-item',
@@ -6,34 +7,24 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent {
-  private _name: string;
-  private _description: string;
-  private _imageUrl: string;
+  private _recipe: Recipe;
+  private _recipeSelected: EventEmitter<Recipe> = new EventEmitter<Recipe>();
 
-  public get name(): string {
-    return this._name;
+  @Output()
+  public get recipeSelected(): EventEmitter<Recipe> {
+    return this._recipeSelected;
+  }
+
+  public get recipe(): Recipe {
+    return this._recipe;
   }
 
   @Input()
-  public set name(value: string) {
-    this._name = value;
+  public set recipe(value: Recipe) {
+    this._recipe = value;
   }
 
-  public get description(): string {
-    return this._description;
-  }
-
-  @Input()
-  public set description(value: string) {
-    this._description = value;
-  }
-
-  public get imageUrl(): string {
-    return this._imageUrl;
-  }
-
-  @Input()
-  public set imageUrl(value: string) {
-    this._imageUrl = value;
+  public clicked(): void {
+    this._recipeSelected.emit(this._recipe);
   }
 }
