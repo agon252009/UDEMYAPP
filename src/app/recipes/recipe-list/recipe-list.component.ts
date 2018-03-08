@@ -6,7 +6,7 @@ import {Recipe} from '../recipe.model';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent {
   private readonly _recipes: Recipe[] = [
     new Recipe('Test Recipe',
       'Test Description',
@@ -20,10 +20,4 @@ export class RecipeListComponent implements OnInit {
   get recipes(): Recipe[] {
     return this._recipes;
   }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
