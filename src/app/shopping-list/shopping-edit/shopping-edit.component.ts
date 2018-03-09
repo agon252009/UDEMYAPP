@@ -9,8 +9,8 @@ import { Ingredient } from '../../shared/ingredient.model';
 
 export class ShoppingEditComponent {
   private _addIngredientEvent: EventEmitter<Ingredient> = new EventEmitter<Ingredient>();
-  private _name: string;
-  private _amount: number;
+  private _name = '';
+  private _amount = 0;
 
   public get name(): string {
     return this._name;
@@ -26,6 +26,10 @@ export class ShoppingEditComponent {
 
   public set amount(value: number) {
     this._amount = value;
+  }
+
+  public get infoIsValid(): boolean {
+    return this._name.length > 0 && this._amount > 0;
   }
 
   @Output()
