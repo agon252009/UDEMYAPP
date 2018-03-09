@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import {Ingredient} from '../shared/ingredient.model';
+import { Ingredient } from '../shared/ingredient.model';
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,10 +9,7 @@ import {Ingredient} from '../shared/ingredient.model';
 
 export class ShoppingListComponent {
 
-  private readonly _ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10)
-  ];
+  private readonly _ingredients: Ingredient[] = [];
 
   public get ingredients(): Ingredient[] {
     return this._ingredients;
@@ -21,5 +18,4 @@ export class ShoppingListComponent {
   public addIngredient(ingredient: Ingredient) {
     this._ingredients.push(ingredient);
   }
-
 }
