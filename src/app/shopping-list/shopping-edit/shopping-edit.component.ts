@@ -10,11 +10,11 @@ import {Ingredient} from '../../shared/ingredient.model';
 export class ShoppingEditComponent {
   private _addIngredientEvent: EventEmitter<Ingredient> = new EventEmitter<Ingredient>();
 
-  @ViewChild('ingredientNameInput')
-  private _ingredientNameInput: ElementRef;
+  // @ViewChild('ingredientNameInput')
+  // private _ingredientNameInput: ElementRef;
 
-  @ViewChild('ingredientAmountInput')
-  private _ingredientAmountInput: ElementRef;
+  // @ViewChild('ingredientAmountInput')
+  // private _ingredientAmountInput: ElementRef;
 
 
   @Output()
@@ -22,8 +22,7 @@ export class ShoppingEditComponent {
     return this._addIngredientEvent;
   }
 
-  public onAddIngredientButtonClick(): void {
-     this._addIngredientEvent.emit(new Ingredient(this._ingredientNameInput.nativeElement.value,
-                                                  this._ingredientAmountInput.nativeElement.value));
+  public onAddIngredientButtonClick(name: string, amount: number): void {
+     this._addIngredientEvent.emit(new Ingredient(name, amount));
   }
 }

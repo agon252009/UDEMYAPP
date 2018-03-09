@@ -13,8 +13,11 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <button class="btn btn-success" (click)="onAddIngredientButtonClick()" type="button">Add</button>
-          <button class="btn btn-danger" (click)="onAddIngredientButtonClick()" type="button">Delete</button>
+          <button class="btn btn-success"
+          (click)="onAddIngredientButtonClick(ingredientNameInput.value,
+                                              ingredientAmountInput.value)"
+          type="button">Add</button>
+          <button class="btn btn-danger"  type="button">Delete</button>
           <button class="btn btn-primary" type="button">Clear</button>
         </div>
       </div>
