@@ -14,8 +14,12 @@ export class ShoppingListComponent {
     new Ingredient('Tomatoes', 10)
   ];
 
-  public addIngredient() {
+  public get ingredients(): Ingredient[] {
+    return this._ingredients;
+  }
 
+  public addIngredient(ingredient: Ingredient) {
+    this._ingredients.push(ingredient);
   }
 
 }
